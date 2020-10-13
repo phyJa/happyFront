@@ -11,7 +11,7 @@ function Routes () {
 
         <BrowserRouter>
 
-            <Route path="/" component={ Landing } />
+            <Route path="/" component={ Landing } exact />
 
             <Route path="/app" component={ OrphanagesMap } />
 
