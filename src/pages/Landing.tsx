@@ -1,5 +1,8 @@
 import React from 'react';
 
+// To avoid charging all from 0, replace the a tag by this:
+import { Link } from 'react-router-dom';
+
 // Image
 import logoImg from '../images/logo.svg';
 
@@ -34,11 +37,11 @@ function Landing() {
     
             </div>
     
-            <a href="/app" className="enter-app"> 
+            <Link to="/app" className="enter-app"> 
     
               <FiArrowRight size={ 26 } color="rgba(0, 0, 0, 0.6)" /> 
     
-            </a>
+            </Link>
     
           </div>
     
