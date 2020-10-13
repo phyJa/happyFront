@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 // Icons
 import { FiPlus } from 'react-icons/fi';
 
+// CSS
+import '../styles/pages/orphanages-map.css';
+
 function OrphanagesMap() {
 
     return (
