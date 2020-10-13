@@ -34,7 +34,7 @@ function Landing() {
     
             </div>
     
-            <a href="#" className="enter-app"> 
+            <a href="/app" className="enter-app"> 
     
               <FiArrowRight size={ 26 } color="rgba(0, 0, 0, 0.6)" /> 
     

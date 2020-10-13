@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Switch does not allow that more than one route is shown on the screen
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // Pages
@@ -11,9 +13,13 @@ function Routes () {
 
         <BrowserRouter>
 
-            <Route path="/" component={ Landing } exact />
+            <Switch> 
 
-            <Route path="/app" component={ OrphanagesMap } />
+                <Route path="/" component={ Landing } exact />
+
+                <Route path="/app" component={ OrphanagesMap } />
+
+            </Switch>
 
         </BrowserRouter>
 
