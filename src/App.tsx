@@ -3,6 +3,8 @@ import React from 'react';
 // Image
 import logoImg from './images/logo.svg';
 
+import { FiArrowRight } from 'react-icons/fi';
+
 // CSS
 import './styles/pages/landing.css';
 
@@ -32,7 +34,11 @@ function App() {
 
         </div>
 
-        <a href="#" className="enter-app"> Arrow </a>
+        <a href="#" className="enter-app"> 
+
+          <FiArrowRight size={ 26 } color="rgba(0, 0, 0, 0.6)" /> 
+          
+        </a>
 
       </div>
 
