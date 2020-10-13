@@ -32,7 +32,7 @@ function App() {
 
         </div>
 
-        <a href="#" className="enter-app"> > </a>
+        <a href="#" className="enter-app"> Arrow </a>
 
       </div>
 

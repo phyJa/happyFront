@@ -6,4 +6,49 @@
 
     height: 100vh;
 
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 2vw;
+}
+
+#page-landing .contentWrapper {
+
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    max-height: 680px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+
+    padding: 30px;
+
+}
+
+.contentWrapper .location {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+}
+
+.contentWrapper .enter-app {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
 }
