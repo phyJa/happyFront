@@ -37,7 +37,7 @@ function App() {
         <a href="#" className="enter-app"> 
 
           <FiArrowRight size={ 26 } color="rgba(0, 0, 0, 0.6)" /> 
-          
+
         </a>
 
       </div>
