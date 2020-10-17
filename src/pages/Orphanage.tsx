@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+// import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
 import { useParams } from "react-router-dom";
@@ -48,6 +48,8 @@ export default function Orphanage() {
 
   const [orphanage, setOrphanage] = useState<Orphanage>();
 
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
   useEffect(
 
         () => {
@@ -78,18 +80,31 @@ export default function Orphanage() {
 
         <div className="orphanage-details">
 
-          <img src={orphanage.images[0].url} alt={orphanage.name} />
+          <img src={orphanage.images[activeImageIndex].url} alt={orphanage.name} />
 
           <div className="images">
             {
 
               orphanage.images.map(
 
-                (orphanageImage) => {
+                (orphanageImage, imageIndex) => {
 
                   return(
 
-                    <button className="active" type="button" key={orphanageImage.id}>
+                    <button 
+                      className="active" 
+                      
+                      type="button" 
+                      
+                      key={orphanageImage.id}
+
+                      onClick={
+
+                        () => { setActiveImageIndex(imageIndex) }
+
+                      }
+
+                    >
 
                       <img src={orphanageImage.url} alt={orphanage.name} />
                     
@@ -133,7 +148,16 @@ export default function Orphanage() {
               </Map>
 
               <footer>
-                <a href={`https://www.google.com/maps/dir/?api=1&destination=${orphanage.latitude},${orphanage.longitude}`}>Ver rotas no Google Maps</a>
+                <a 
+                  target="blank"
+
+                  rel="noopener noreferrer"
+
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${orphanage.latitude},${orphanage.longitude}`}
+                
+                >
+                  Ver rotas no Google Maps
+                </a>
               </footer>
             </div>
 
@@ -182,13 +206,17 @@ export default function Orphanage() {
 
             </div>
 
-            <button type="button" className="contact-button">
+            {/* <button type="button" className="contact-button">
               <FaWhatsapp size={20} color="#FFF" />
               Entrar em contato
-            </button>
+            </button> */}
+
           </div>
+
         </div>
+
       </main>
+
     </div>
   );
 }
