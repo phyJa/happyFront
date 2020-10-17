@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 // Icons
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiArrowRight } from 'react-icons/fi';
 
 // CSS
 import '../styles/pages/orphanages-map.css';
@@ -102,6 +102,12 @@ function OrphanagesMap() {
                     >
 
                         Lar das meninas
+
+                        <Link to="">
+
+                            <FiArrowRight size={20} color="FFF"/>
+                            
+                        </Link>
                     
                     </Popup>
 

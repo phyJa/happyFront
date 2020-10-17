@@ -105,14 +105,14 @@ wraps the map inside by default */
 /* Automatically generated class: .leaflet-popup-content-wrapper */
 #page-map .map-popup .leaflet-popup-content-wrapper{
 
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.7);
 
     border-radius: 20px;
 
 }
 
 /* Automatically generated class: .leaflet-popup-content */
-#page-map .map-popup .leaflet-popup-content{
+#page-map .map-popup .leaflet-popup-content {
 
     color: #0089a5;
 
@@ -128,4 +128,29 @@ wraps the map inside by default */
 
     align-items: center;
 
+}
+
+#page-map .map-popup .leaflet-popup-content a {
+
+    height: 40px;
+
+    width: 40px;
+
+    background: #15c3d6;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    border-radius: 12px;
+
+    display: flex;
+    
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* Automatically generated class: .leaflet-popup-tip-container (the popup sharp corner) */
+#page-map .map-popup .leaflet-popup-tip-container {
+    display: none;
 }
