@@ -1,6 +1,11 @@
 import React from 'react';
 import Routes from './routes';
 
+import './styles/global.css';
+
+// Default CSS for leaflet
+import 'leaflet/dist/leaflet.css';
+
 function App() {
 
   return (
