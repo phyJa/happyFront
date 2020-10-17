@@ -101,3 +101,31 @@ wraps the map inside by default */
     background-color: #17d6eb
 
 }
+
+/* Automatically generated class: .leaflet-popup-content-wrapper */
+#page-map .map-popup .leaflet-popup-content-wrapper{
+
+    background: rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+}
+
+/* Automatically generated class: .leaflet-popup-content */
+#page-map .map-popup .leaflet-popup-content{
+
+    color: #0089a5;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin: 8px 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
