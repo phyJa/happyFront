@@ -19,11 +19,21 @@ import '../styles/pages/orphanages-map.css';
 
 import mapIcon from '../utils/mapIcon';
 
+interface Orphanage {
 
+    id: number;
+
+    latitude: number;
+
+    longitude: number;
+
+    name: string;
+
+}
 
 function OrphanagesMap() {
 
-    const [orphanages, setOrphanages] = useState([]);
+    const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
 
     console.log(orphanages);
 
@@ -85,37 +95,52 @@ function OrphanagesMap() {
                 
                 />
 
-                <Marker 
+              {
+                  orphanages.map(
 
-                    icon={mapIcon}
+                    orphanage => {
 
-                    position={[-23.2427023,-45.8944638]}
+                        return (
 
-                >
+                            <Marker 
 
-                    <Popup 
-
-                        closeButton={false} 
-
-                        minWidth={240} 
-
-                        max-width={240} 
-
-                        className="map-popup"
-
-                    >
-
-                        Lar das meninas
-
-                        <Link to="/orphanages/1">
-
-                            <FiArrowRight size={20} color="FFF"/>
+                            icon={mapIcon}
+        
+                            position={[orphanage.latitude, orphanage.longitude]}
+        
+                        >
+        
+                            <Popup 
+        
+                                closeButton={false} 
+        
+                                minWidth={240} 
+        
+                                max-width={240} 
+        
+                                className="map-popup"
+        
+                            >
+        
+                                Lar das meninas
+        
+                                <Link to="/orphanages/1">
+        
+                                    <FiArrowRight size={20} color="FFF"/>
+                                    
+                                </Link>
                             
-                        </Link>
-                    
-                    </Popup>
+                            </Popup>
+        
+                        </Marker>
+        
 
-                </Marker>
+                        );
+
+                    }
+
+                  )
+              }
 
             </Map>
 
