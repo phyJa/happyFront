@@ -6,7 +6,7 @@ import mapMarkerImg from '../images/map-marker.svg';
 import { Link } from 'react-router-dom';
 
 // Map
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 
 // Icons
 import { FiPlus } from 'react-icons/fi';
@@ -16,6 +16,15 @@ import '../styles/pages/orphanages-map.css';
 
 // Default CSS for leaflet
 import 'leaflet/dist/leaflet.css';
+
+import Leaflet from 'leaflet';
+
+// Defining the mapIcon to display it correctly
+const mapIcon = Leaflet.icon(
+    {
+        iconUrl: mapMarkerImg
+    }
+);
 
 function OrphanagesMap() {
 
@@ -61,6 +70,14 @@ function OrphanagesMap() {
                     
                     url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} 
                 
+                />
+
+                <Marker 
+
+                    icon={mapIcon}
+
+                    position={[-23.2427023,-45.8944638]}
+
                 />
 
             </Map>
