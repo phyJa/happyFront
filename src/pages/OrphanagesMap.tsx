@@ -22,7 +22,12 @@ import Leaflet from 'leaflet';
 // Defining the mapIcon to display it correctly
 const mapIcon = Leaflet.icon(
     {
-        iconUrl: mapMarkerImg
+        iconUrl: mapMarkerImg,
+
+        iconSize: [58, 68],
+
+        // [x, y] axis
+        iconAnchor: [29, 68]
     }
 );
 
