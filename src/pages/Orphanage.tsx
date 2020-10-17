@@ -27,9 +27,12 @@ interface Orphanage {
 
   open_on_weekends: boolean;
 
-  images: Array<{
-    url: string
-  }>;
+  images: Array<
+    {
+      url: string,
+      id: number
+    }
+  >;
 
 }
 
@@ -72,28 +75,34 @@ export default function Orphanage() {
       <SideBar />
 
       <main>
+
         <div className="orphanage-details">
+
           <img src={orphanage.images[0].url} alt={orphanage.name} />
 
           <div className="images">
-            <button className="active" type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
+            {
+
+              orphanage.images.map(
+
+                (orphanageImage) => {
+
+                  return(
+
+                    <button className="active" type="button" key={orphanageImage.id}>
+
+                      <img src={orphanageImage.url} alt={orphanage.name} />
+                    
+                    </button>
+
+                  );
+
+                }
+
+              )
+
+            }
+            
           </div>
           
           <div className="orphanage-details-content">
