@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+//API
+import api from '../services/api';
 
 // Image
 import mapMarkerImg from '../images/map-marker.svg';
@@ -14,28 +17,29 @@ import { FiPlus, FiArrowRight } from 'react-icons/fi';
 // CSS
 import '../styles/pages/orphanages-map.css';
 
-// Default CSS for leaflet
-import 'leaflet/dist/leaflet.css';
+import mapIcon from '../utils/mapIcon';
 
-import Leaflet from 'leaflet';
 
-// Defining the mapIcon to display it correctly
-const mapIcon = Leaflet.icon(
-    {
-
-        iconUrl: mapMarkerImg,
-
-        iconSize: [58, 68],
-
-        // [x, y] axis
-        iconAnchor: [29, 68],
-
-        popupAnchor: [178, 2]
-
-    }
-);
 
 function OrphanagesMap() {
+
+    const [orphanages, setOrphanages] = useState([]);
+
+    console.log(orphanages);
+
+    useEffect(
+
+        () => {
+
+            api.get("orphanages").then(
+                (response) => { setOrphanages(response.data) }
+            );
+        
+        },
+
+        []
+
+    );
 
     return (
 
