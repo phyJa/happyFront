@@ -6,7 +6,7 @@ import mapMarkerImg from '../images/map-marker.svg';
 import { Link } from 'react-router-dom';
 
 // Map
-import { Map, TileLayer, Marker } from 'react-leaflet';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 // Icons
 import { FiPlus } from 'react-icons/fi';
@@ -22,6 +22,7 @@ import Leaflet from 'leaflet';
 // Defining the mapIcon to display it correctly
 const mapIcon = Leaflet.icon(
     {
+
         iconUrl: mapMarkerImg,
 
         iconSize: [58, 68],
@@ -83,7 +84,15 @@ function OrphanagesMap() {
 
                     position={[-23.2427023,-45.8944638]}
 
-                />
+                >
+
+                    <Popup closeButton={false}>
+
+                        Lar das meninas
+                    
+                    </Popup>
+
+                </Marker>
 
             </Map>
 
