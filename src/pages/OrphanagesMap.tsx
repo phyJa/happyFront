@@ -17,7 +17,7 @@ import '../styles/pages/orphanages-map.css';
 // Default CSS for leaflet
 import 'leaflet/dist/leaflet.css';
 
-import Leaflet, { popup } from 'leaflet';
+import Leaflet from 'leaflet';
 
 // Defining the mapIcon to display it correctly
 const mapIcon = Leaflet.icon(
@@ -103,7 +103,7 @@ function OrphanagesMap() {
 
                         Lar das meninas
 
-                        <Link to="">
+                        <Link to="/orphanages/1">
 
                             <FiArrowRight size={20} color="FFF"/>
                             
@@ -115,7 +115,7 @@ function OrphanagesMap() {
 
             </Map>
 
-            <Link to="" className="create-orphanage"> 
+            <Link to="/orphanages/create" className="create-orphanage"> 
             
                 <FiPlus size={ 32 } color="#FFF"/>
 
