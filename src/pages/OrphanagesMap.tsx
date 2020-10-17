@@ -17,7 +17,7 @@ import '../styles/pages/orphanages-map.css';
 // Default CSS for leaflet
 import 'leaflet/dist/leaflet.css';
 
-import Leaflet from 'leaflet';
+import Leaflet, { popup } from 'leaflet';
 
 // Defining the mapIcon to display it correctly
 const mapIcon = Leaflet.icon(
@@ -28,7 +28,10 @@ const mapIcon = Leaflet.icon(
         iconSize: [58, 68],
 
         // [x, y] axis
-        iconAnchor: [29, 68]
+        iconAnchor: [29, 68],
+
+        popupAnchor: [178, 2]
+
     }
 );
 
@@ -86,7 +89,17 @@ function OrphanagesMap() {
 
                 >
 
-                    <Popup closeButton={false}>
+                    <Popup 
+
+                        closeButton={false} 
+
+                        minWidth={240} 
+
+                        max-width={240} 
+
+                        className="map-popup"
+
+                    >
 
                         Lar das meninas
                     
