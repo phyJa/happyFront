@@ -1,6 +1,8 @@
 import React, { FormEvent, useState, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 
+import api from "../services/api";
+
 import { LeafletMouseEvent } from "leaflet";
 
 import { FiPlus } from "react-icons/fi";
@@ -10,6 +12,7 @@ import '../styles/pages/create-orphanage.css';
 import SideBar from "../components/SideBar";
 
 import mapIcon from "../utils/mapIcon";
+
 
 
 export default function CreateOrphanage() {
@@ -49,7 +52,7 @@ export default function CreateOrphanage() {
 
   }
 
-  function handleSubmit (event: FormEvent) {
+  async function handleSubmit (event: FormEvent) {
 
     // This will prevent the default behaviour of the browser,
     // as reloading the page when submitting
@@ -57,17 +60,25 @@ export default function CreateOrphanage() {
 
     const {latitude, longitude} = position;
 
-    console.log(
-      {
-        name,
-        about,
-        latitude,
-        longitude,
-        instructions,
-        opening_hours,
-        open_on_weekends
-      }
+    // Creating a MultiPart form data
+    const data = new FormData();
+
+    data.append("name", name);
+    data.append("about", about);
+    data.append("latitude", String(latitude));
+    data.append("longitude", String(longitude));
+    data.append("instructions", instructions);
+    data.append("opening_hours", opening_hours);
+    data.append("open_on_weekends", String(open_on_weekends));
+    images.forEach(
+      (image) => { data.append("images", image) }
     );
+
+    // Send the data to the API
+    await api.post("orphanages", data);
+
+    alert("Cadastro realizado com sucesso!");
+    
 
   }
 
