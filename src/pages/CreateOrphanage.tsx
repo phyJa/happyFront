@@ -41,13 +41,17 @@ export default function CreateOrphanage() {
     // as reloading the page when submitting
     event.preventDefault();
 
+    const {latitude, longitude} = position;
+
     console.log(
       {
-        position: position,
         name,
         about,
+        latitude,
+        longitude,
         instructions,
-        opening_hours
+        opening_hours,
+        open_on_weekends
       }
     );
 
@@ -133,18 +137,19 @@ export default function CreateOrphanage() {
                 onChange={ (event) => { setAbout(event.target.value) }} 
 
               />
+
             </div>
 
             <div className="input-block">
               <label htmlFor="images">Fotos</label>
 
-              <div className="uploaded-image">
-
+              <div className="images-container">
+                <button type="button" className="new-image">
+                  <FiPlus size={24} color="#15b6d6" />
+                </button>
               </div>
 
-              <button className="new-image">
-                <FiPlus size={24} color="#15b6d6" />
-              </button>
+              
             </div>
           </fieldset>
 
