@@ -92,6 +92,7 @@ export default function Orphanage() {
                   return(
 
                     <button 
+                    
                       className={activeImageIndex === imageIndex ? "active" : "" }
                       
                       type="button" 
