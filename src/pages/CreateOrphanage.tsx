@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 
 import { LeafletMouseEvent } from "leaflet";
@@ -25,6 +25,8 @@ export default function CreateOrphanage() {
 
   const [opening_hours, setOpeningHours] = useState("");
 
+  const [open_on_weekends, setOpenOnWeekends] = useState(true);
+
   function handleMapClick (event: LeafletMouseEvent) {
     
     const { lat, lng } = event.latlng;
@@ -33,8 +35,22 @@ export default function CreateOrphanage() {
     
   }
 
-  function handleSubmit () {
-    
+  function handleSubmit (event: FormEvent) {
+
+    // This will prevent the default behaviour of the browser,
+    // as reloading the page when submitting
+    event.preventDefault();
+
+    console.log(
+      {
+        position: position,
+        name,
+        about,
+        instructions,
+        opening_hours
+      }
+    );
+
   }
 
   return (
@@ -168,13 +184,42 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
+
               <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
               <div className="button-select">
-                <button type="button" className="active">Sim</button>
-                <button type="button">Não</button>
+
+                <button 
+
+                  type="button" 
+                  
+                  className={open_on_weekends ? "active" : ""}
+
+                  onClick={ () => setOpenOnWeekends(true) }
+                  
+                >
+                  Sim
+                  
+                </button>
+                
+                <button 
+                  
+                  type="button" 
+                  
+                  className={!open_on_weekends ? "dont-open" : ""}
+                
+                  onClick={ () => setOpenOnWeekends(false) }
+                  
+                >
+                
+                  Não
+                  
+                </button>
+              
               </div>
+            
             </div>
+          
           </fieldset>
 
           <button className="confirm-button" type="submit">
