@@ -1,5 +1,6 @@
 import React, { FormEvent, useState, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
+import { useHistory } from "react-router-dom";
 
 import api from "../services/api";
 
@@ -14,7 +15,6 @@ import SideBar from "../components/SideBar";
 import mapIcon from "../utils/mapIcon";
 
 
-
 export default function CreateOrphanage() {
 
   const [position, setPosition] = useState( {latitude: 0, longitude: 0} );
@@ -27,6 +27,9 @@ export default function CreateOrphanage() {
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
+
+  // Router-dom
+  const history = useHistory();
 
   function handleMapClick (event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
@@ -79,6 +82,8 @@ export default function CreateOrphanage() {
 
     alert("Cadastro realizado com sucesso!");
     
+    // Redirect the user
+    history.push("/app");
 
   }
 
@@ -98,7 +103,7 @@ export default function CreateOrphanage() {
 
             <Map 
 
-              center={[-27.2092052,-49.6401092]} 
+              center={[-23.20150801826841,-45.89351304471986]} 
 
               style={{ width: '100%', height: 280 }}
 
