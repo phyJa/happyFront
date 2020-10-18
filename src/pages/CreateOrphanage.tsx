@@ -23,6 +23,7 @@ export default function CreateOrphanage() {
   const [opening_hours, setOpeningHours] = useState("");
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
+  const [previewImages, setPreviewImages] = useState<string[]>([]);
 
   function handleMapClick (event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
@@ -35,8 +36,16 @@ export default function CreateOrphanage() {
       return;
     }
 
-    // Convert the set of images in an array
-    setImages(Array.from(event.target.files));
+    const selectedImages = Array.from(event.target.files);
+
+    setImages(selectedImages);
+
+    // Get the address (URL) of each image
+    const selectedImagesPreview = selectedImages.map(
+      (image) => { return URL.createObjectURL(image); }
+    );
+
+    setPreviewImages(selectedImagesPreview);
 
   }
 
@@ -150,6 +159,22 @@ export default function CreateOrphanage() {
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
+
+                {
+                  
+                  previewImages.map(
+                  
+                    (image) => {
+                      
+                      return (
+                        <img key={image} src={image} alt={name}/>
+                      );
+                    
+                    }
+                  
+                  )
+
+                }
 
                 <label htmlFor="image[]" className="new-image">
 
