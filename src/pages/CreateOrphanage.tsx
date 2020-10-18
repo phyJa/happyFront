@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 
 import { LeafletMouseEvent } from "leaflet";
@@ -18,21 +18,26 @@ export default function CreateOrphanage() {
 
   // Form data
   const [name, setName] = useState("");
-
-  const [about, setAbout] = useState("");
-  
+  const [about, setAbout] = useState(""); 
   const [instructions, setInstructions] = useState("");
-
   const [opening_hours, setOpeningHours] = useState("");
-
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
+  const [images, setImages] = useState<File[]>([]);
 
   function handleMapClick (event: LeafletMouseEvent) {
-    
     const { lat, lng } = event.latlng;
- 
     setPosition({latitude: lat, longitude: lng});
+  }
+
+  function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
     
+    if(!event.target.files) {
+      return;
+    }
+
+    // Convert the set of images in an array
+    setImages(Array.from(event.target.files));
+
   }
 
   function handleSubmit (event: FormEvent) {
@@ -141,15 +146,31 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
+
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
-                <button type="button" className="new-image">
+
+                <label htmlFor="image[]" className="new-image">
+
                   <FiPlus size={24} color="#15b6d6" />
-                </button>
+
+                </label>
+
               </div>
 
-              
+              <input
+                
+                multiple
+                
+                type="file" 
+                
+                id="image[]" 
+               
+                onChange={handleSelectImages}
+                
+              />
+
             </div>
           </fieldset>
 
